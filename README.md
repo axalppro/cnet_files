@@ -9,6 +9,12 @@ For more info and download instructions, go check the [CNet ELN Launcher reposit
 
 - [Installation](#installation)
 
+## List of files/folder
+
+- map : The Minecradt map files
+- xxx.lua : Custom lua script that increase time.
+_Work in progress_
+
 ## Installation
 
 1. Go to the [release page](https://github.com/axalppro/cnet_eln_launcher/releases).
