@@ -22,8 +22,14 @@ jobs:
 
       - name: Compress the map folder
         run: zip -r map.zip map
+        
+      - name: Upload zip artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: cnet_map_${{github.ref_name}}
+          path: ./map.zip
 
       - name: Create release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "map.zip"
+          artifacts: "cnet_map_${{github.ref_name}}.zip"
