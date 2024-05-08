@@ -6,7 +6,7 @@ debug = component.debug
 print("hi")
 local periode, speedup = ...
 print(tostring(periode))
-print(tostring(add))
+print(tostring(speedup))
 
 print("timeWarp start")
 local oldRealTime = computer.uptime()

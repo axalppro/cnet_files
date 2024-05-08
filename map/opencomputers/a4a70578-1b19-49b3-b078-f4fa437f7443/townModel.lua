@@ -117,6 +117,9 @@ random_time_furnace1=100 -- random time for the furnace
 end_score = 0
 flag_end = false
 startingDay = -1
+
+debug.runCommand("/time set 0")
+
 while not keyboard.isAltDown() or not keyboard.isKeyDown(keyboard.keys.m) do
   os.sleep(0.5)
   t_s = os.time() --epoch time
@@ -346,8 +349,13 @@ while not keyboard.isAltDown() or not keyboard.isKeyDown(keyboard.keys.m) do
     else
       print('Yes !')
     end
+
+    eln.wirelessSet("sim_running", 0)
+    eln.wirelessSet("sim_enable", 0)
   end
 
 end
 
 print("townModel shutdown")
+eln.wirelessSet("sim_running", 0)
+eln.wirelessSet("sim_enable", 0)
