@@ -116,9 +116,13 @@ local oldRealTime = computer.uptime()
 random_time_furnace1=100 -- random time for the furnace
 end_score = 0
 flag_end = false
+first_start = true
 startingDay = -1
 
 debug.runCommand("/time set 0")
+
+-- Reset Factory setpoint
+wirelessSet("factory1_setpoint", 0.0)
 
 while not keyboard.isAltDown() or not keyboard.isKeyDown(keyboard.keys.m) do
   os.sleep(0.5)
@@ -135,9 +139,8 @@ while not keyboard.isAltDown() or not keyboard.isKeyDown(keyboard.keys.m) do
   day=date.day
   if day_prev==-1 then
     day_prev = day
-	startingDay = day
+	  startingDay = day
   end
-
   
   wirelessSetBool("public_light1", hourIn(t, 19.0, 6.0))
   
@@ -148,8 +151,16 @@ while not keyboard.isAltDown() or not keyboard.isKeyDown(keyboard.keys.m) do
   
   wirelessSetBool("factory1_light1", hourIn(t, 7.0, 18.0))
   wirelessSetBool("factory1_light2", hourIn(t, 7.5, 17.5))
-  eln.wirelessSet("factory1_setpoint_filtred", eln.wirelessGet("factory1_setpoint"))
-  --wirelessSetBool("factory1_setpoint", hourIn(t, 8.0, 17.0))
+
+  if first_start then
+    -- Reset Factory setpoint
+    wirelessSet("factory1_setpoint", 0.0)
+    eln.wirelessSet("factory1_setpoint_filtred", 0.0)
+    first_start = false
+  else
+    eln.wirelessSet("factory1_setpoint_filtred", eln.wirelessGet("factory1_setpoint"))
+  end
+--wirelessSetBool("factory1_setpoint", hourIn(t, 8.0, 17.0))
   -- if hourIn(t, 8.0, 18.0) then
   --   eln.wirelessSet("factory1_setpoint_filtred", eln.wirelessGet("factory1_setpoint"))
   -- else
