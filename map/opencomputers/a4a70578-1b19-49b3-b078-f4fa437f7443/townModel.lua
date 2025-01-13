@@ -118,6 +118,9 @@ end_score = 0
 flag_end = false
 startingDay = -1
 
+-- Reset Factory setpoint
+eln.wirelessSet("factory1_setpoint", 0.0)
+
 debug.runCommand("/time set 0")
 
 while not keyboard.isAltDown() or not keyboard.isKeyDown(keyboard.keys.m) do
