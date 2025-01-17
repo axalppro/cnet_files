@@ -163,7 +163,8 @@ while not keyboard.isAltDown() or not keyboard.isKeyDown(keyboard.keys.m) do
   else
     eln.wirelessSet("factory1_setpoint_filtred", eln.wirelessGet("factory1_setpoint"))
   end
---wirelessSetBool("factory1_setpoint", hourIn(t, 8.0, 17.0))
+
+  --wirelessSetBool("factory1_setpoint", hourIn(t, 8.0, 17.0))
   -- if hourIn(t, 8.0, 18.0) then
   --   eln.wirelessSet("factory1_setpoint_filtred", eln.wirelessGet("factory1_setpoint"))
   -- else
