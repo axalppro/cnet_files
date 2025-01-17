@@ -119,6 +119,9 @@ flag_end = false
 first_start = true
 startingDay = -1
 
+-- Reset Factory setpoint
+eln.wirelessSet("factory1_setpoint", 0.0)
+
 debug.runCommand("/time set 0")
 
 -- Reset Factory setpoint
