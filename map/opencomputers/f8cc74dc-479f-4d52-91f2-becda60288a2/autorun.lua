@@ -184,8 +184,8 @@ factoryPower = VuMeter:create(
   "Factory power", "W",
   posX,posY,
   30, 1,
-  0, 1200,
-  {{0, 1200, 0x00FF00}} 
+  0, 2000,
+  {{0, 2000, 0x00FF00}} 
 )
 posY = posY + vumeterDeltyY
 
@@ -217,6 +217,9 @@ gpu.setBackground(0x000000)
 gpu.set(statePosx, domesticPower.posY, "Public power") 
 gpu.set(statePosx, bunker1BatteryCharge.posY, "Total consumption") 
 gpu.set(statePosx, voltageVuMeter.posY, "Total production") 
+
+-- Reset Factory setpoint
+wirelessSet("factory1_setpoint", 0)
 
 phase = 0
 while not keyboard.isAltDown() do
