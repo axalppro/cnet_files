@@ -103,6 +103,21 @@ test_sun_day=0
 test_sun_day_prev=test_sun_day
 
 ----------------------------------------------------------------------------------------
+-- Initial conditions
+----------------------------------------------------------------------------------------
+-- Reset Factory setpoint
+wirelessSet("factory1_setpoint", 0)
+
+-- Fill battery
+wirelessSet("bunker1_battery_charge", 0.8)
+
+-- Reset grid
+wirelessSet("grid1_voltage", 0.8)
+
+-- Reset Time
+debug.runCommand("/time set 0")
+
+----------------------------------------------------------------------------------------
 -- timer
 ----------------------------------------------------------------------------------------
 
@@ -118,8 +133,10 @@ end_score = 0
 flag_end = false
 startingDay = -1
 
-debug.runCommand("/time set 0")
 
+----------------------------------------------------------------------------------------
+-- Game loop
+----------------------------------------------------------------------------------------
 while not keyboard.isAltDown() or not keyboard.isKeyDown(keyboard.keys.m) do
   os.sleep(0.5)
   t_s = os.time() --epoch time
@@ -135,8 +152,9 @@ while not keyboard.isAltDown() or not keyboard.isKeyDown(keyboard.keys.m) do
   day=date.day
   if day_prev==-1 then
     day_prev = day
-	  startingDay = day
+	startingDay = day
   end
+
   
   wirelessSetBool("public_light1", hourIn(t, 19.0, 6.0))
   
@@ -147,12 +165,7 @@ while not keyboard.isAltDown() or not keyboard.isKeyDown(keyboard.keys.m) do
   
   wirelessSetBool("factory1_light1", hourIn(t, 7.0, 18.0))
   wirelessSetBool("factory1_light2", hourIn(t, 7.5, 17.5))
-  --wirelessSetBool("factory1_setpoint", hourIn(t, 8.0, 17.0))
-  -- if hourIn(t, 8.0, 18.0) then
-  --   eln.wirelessSet("factory1_setpoint_filtred", eln.wirelessGet("factory1_setpoint"))
-  -- else
-  --   eln.wirelessSet("factory1_setpoint_filtred", 0.0)
-  -- end
+  wirelessSet("factory1_setpoint_filtred", eln.wirelessGet("factory1_setpoint"))
   
   weatherDuration = weatherDuration - dt
   if weatherDuration <= 0 then
@@ -167,8 +180,8 @@ while not keyboard.isAltDown() or not keyboard.isKeyDown(keyboard.keys.m) do
     end
     applyWeather()
   end
-  eln.wirelessSet("weather_forecast", (weatherForcast-1)/2)
-  eln.wirelessSet("weather_forecast_countdown", math.min(1.0*weatherDuration/weatherTimeScale,1.0))
+  wirelessSet("weather_forecast", (weatherForcast-1)/2)
+  wirelessSet("weather_forecast_countdown", math.min(1.0*weatherDuration/weatherTimeScale,1.0))
 
   ----------------------------------------------------------------------------------------
   -- -- Delay and low pass of the coal
@@ -227,7 +240,7 @@ while not keyboard.isAltDown() or not keyboard.isKeyDown(keyboard.keys.m) do
   -- Decrease coal amount
   coal_amount = coal_amount - coal*dt -- dt is about 1 anyway
 
-  eln.wirelessSet("coal_amount",coal_amount/coal_amount_init)
+  wirelessSet("coal_amount",coal_amount/coal_amount_init)
 
   if coal_amount <=0 then
     coal_bool = 0 --if there's no coal anymore, switch off the factory
@@ -255,8 +268,8 @@ while not keyboard.isAltDown() or not keyboard.isKeyDown(keyboard.keys.m) do
   cost_fact = cost_fact + fact*dt
   cost_coal = cost_coal + coal*dt
 
-  eln.wirelessSet("factory1_energy",cost_fact/3600000)
-  eln.wirelessSet("end_score",end_score/3600000)
+  wirelessSet("factory1_energy",cost_fact/3600000)
+  wirelessSet("end_score",end_score/3600000)
 
   if t == 0 or day ~= day_prev then -- reset at each start of the day/ log past day result
     -- prev_day_cost = integral_cost
@@ -294,7 +307,7 @@ while not keyboard.isAltDown() or not keyboard.isKeyDown(keyboard.keys.m) do
 
   coalRc2 = coalRc2 * coal_bool
 
-  eln.wirelessSet("coal_real",coalRc2)
+  wirelessSet("coal_real",coalRc2)
 
   -- Display
 
@@ -348,12 +361,12 @@ while not keyboard.isAltDown() or not keyboard.isKeyDown(keyboard.keys.m) do
       print('Yes !')
     end
 
-    eln.wirelessSet("sim_running", 0)
-    eln.wirelessSet("sim_enable", 0)
+    wirelessSet("sim_running", 0)
+    wirelessSet("sim_enable", 0)
   end
 
 end
 
 print("townModel shutdown")
-eln.wirelessSet("sim_running", 0)
-eln.wirelessSet("sim_enable", 0)
+wirelessSet("sim_running", 0)
+wirelessSet("sim_enable", 0)

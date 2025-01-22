@@ -12,7 +12,7 @@ os.sleep(1)
 eln.wirelessSet("sim_running", 0)
 eln.wirelessSet("sim_enable", 0)
 os.execute("clear")
-print("\\Simulation is ready to start\n\n\n\n\t\t\t\t\tStart --->")
+print("\\Simulation is ready to start\n\n\n\t\t\t\t\tStart --->")
 
 while not keyboard.isAltDown() or not keyboard.isKeyDown(keyboard.keys.m) do
   os.sleep(0.1)
