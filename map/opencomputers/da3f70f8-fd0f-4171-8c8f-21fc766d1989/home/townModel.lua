@@ -107,6 +107,7 @@ test_sun_day_prev=test_sun_day
 ----------------------------------------------------------------------------------------
 -- Reset Factory setpoint
 wirelessSet("factory1_setpoint", 0)
+wirelessSet("factory1_setpoint_filtred", 0)
 
 -- Fill battery
 wirelessSet("bunker1_battery_charge", 0.8)
@@ -166,12 +167,6 @@ while not keyboard.isAltDown() or not keyboard.isKeyDown(keyboard.keys.m) do
   wirelessSetBool("factory1_light1", hourIn(t, 7.0, 18.0))
   wirelessSetBool("factory1_light2", hourIn(t, 7.5, 17.5))
   wirelessSet("factory1_setpoint_filtred", eln.wirelessGet("factory1_setpoint"))
-  --wirelessSetBool("factory1_setpoint", hourIn(t, 8.0, 17.0))
-  -- if hourIn(t, 8.0, 18.0) then
-  --   wirelessSet("factory1_setpoint_filtred", eln.wirelessGet("factory1_setpoint"))
-  -- else
-  --   wirelessSet("factory1_setpoint_filtred", 0.0)
-  -- end
   
   weatherDuration = weatherDuration - dt
   if weatherDuration <= 0 then

@@ -107,6 +107,7 @@ test_sun_day_prev=test_sun_day
 ----------------------------------------------------------------------------------------
 -- Reset Factory setpoint
 wirelessSet("factory1_setpoint", 0)
+wirelessSet("factory1_setpoint_filtred", 0)
 
 -- Fill battery
 wirelessSet("bunker1_battery_charge", 0.8)
