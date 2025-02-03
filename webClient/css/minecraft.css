@@ -1,22 +1,28 @@
 /* CSS Document */
 @font-face {
-    font-family:     	'candara';
-
-    src: 				url('fonts/candara-webfont.eot');
-    src: 				url('fonts/candara-webfont.eot?#iefix') format('embedded-opentype'),
-         				url('fonts/candara-webfont.woff') format('woff'),
-         				url('fonts/candara-webfont.ttf') format('truetype'),
-         				url('fonts/candara-webfont.svg#candararegular') format('svg');
-    font-weight: 		normal;
-/*    font-style: normal;*/
+	font-family:     	'Bw Quinta Pro';
+	src: 				url('fonts/BwQuintaPro-Regular.otf');
+	font-weight: 		normal;
+	font-style: 		normal;
 }
 
 @font-face {
-	font-family:     	'Cambria';
-	src: 				url('fonts/Cambria.eot?') format('eot'),
-	     				url('fonts/Cambria.woff') format('woff'),
-	     				url('fonts/Cambria.ttf')  format('truetype'),
-	     				url('fonts/Cambria.svg#Cambria') format('svg');
+	font-family:     	'Bw Quinta Pro Light';
+	src: 				url('fonts/BwQuintaPro-Light.otf');
+	font-weight: 		normal;
+	font-style: 		normal;
+}
+
+@font-face {
+	font-family:     	'Bw Quinta Pro Medium';
+	src: 				url('fonts/BwQuintaPro-Medium.otf');
+	font-weight: 		normal;
+	font-style: 		normal;
+}
+
+@font-face {
+	font-family:     	'Bw Quinta Pro Black';
+	src: 				url('fonts/BwQuintaPro-Black.otf');
 	font-weight: 		normal;
 	font-style: 		normal;
 }
@@ -30,15 +36,17 @@
 body {
 	display:          	block;
 
-	font:             	100% Candara;
+	font:             	100% Bw Quinta Pro;
 
 	margin:           	0 auto;
 	padding:          	0;
 
 	text-align:       	center;
 	color:            	black;
-	
-	background-color: 	rgba(172,163,154,0.25);
+
+	/*background-color: 	rgba(172,163,154,0.25);*/
+	/*background: 		linear-gradient(to left, #91c9f1, #4577ba);*/
+	background: 		linear-gradient(to right, #cc5254, #792b56);
 }
 
 a:link    { color:     	#0000ff; text-decoration: none; }		/* unvisited link */
@@ -142,7 +150,7 @@ label {
 	text-align:        	center;
 	
 	overflow:          	hidden;
-	background:        	white;
+	background:        	linear-gradient(#f7f7f7, #968b83);
  	border:            	none;
 	
         border-radius: 	15px;
@@ -162,20 +170,22 @@ label {
 /* ******************************************************************************************************** */ 
 
 .minecraft header {
-	background:        	url(img/logo/HEI.png) top right no-repeat;
+	background:        	url(img/logo/EN_HEI_rvb.png) top right no-repeat;
+	background-size:    auto 80px;
 	height:            	100px !important;
 	margin:            	auto 0;
 }
 
 .minecraft footer {
-	background:        	url(img/logo/picto.svg) left top no-repeat, url(img/logo/vsExcel.svg) right top no-repeat;
+	background:        	url(img/logo/picto_HEI.png) left top no-repeat, url(img/logo/vsExcel.svg) right top no-repeat;
+	background-size:    auto 20px;
 	height:            	30px !important;
 	margin:            	10px 0;
 	
 	color: 				#cecece;
 	font-size:         	12px;
 	text-align:        	center;
-	line-height:       	3px;
+	line-height:       	20px;
 
 }
 
@@ -202,8 +212,8 @@ label {
 	padding:           	10px;
 	overflow:          	hidden;
 	
-/*	background-color: 	rgba(172,163,154,0.25);*/
-	background:        	transparent;
+	/*background: 		transparent;*/
+	background:        	white;
 
 	border:            	rgba(187, 187, 187, 0.5) 2px solid;
         border-radius: 	15px;
