@@ -13,10 +13,9 @@ For more info and download instructions, go check the [CNet ELN Launcher reposit
 
 ## List of files/folder
 
-- **map**: The Minecraft world used in the ElectricalAge labCNet laboratory.
+- **map**: The Minecraft world used in the ElectricalAge CNet laboratory.
 - **WebClient**: A web client that displays values from the game using a web socket link. It also allows to modify game values with a few buttons.
 - `DashboardGrafana.json`: An example for the dashboard used in Grafana, the monitoring framework used in the lab.
-
 
 ## Opencomputers files
 In the map there are a few systems that run on computers from the OpenComputer mod.
