@@ -22,8 +22,7 @@ jobs:
 
       - name: Compress the Web client
         run: | 
-          cd webClient
-          zip -r ../web_client.zip .
+          zip -r web_client.zip ./webClient/*
           cd ..
         
       - name: Upload cnet_map artifact
