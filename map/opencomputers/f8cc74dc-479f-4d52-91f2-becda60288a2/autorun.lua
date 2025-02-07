@@ -152,8 +152,9 @@ factory1SolarPower = VuMeter:create(
   "Solar power", "W",
   posX,posY,
   30, 1,
-  0, 1000,
-  {{0, 1000, 0x00FF00}} 
+  0, 1250,
+  {{0, 1250, 0xFFFF00},
+   {0, 1000, 0x00FF00}} 
 )
 posY = posY + vumeterDeltyY
 
@@ -161,8 +162,9 @@ windPower = VuMeter:create(
   "Wind power", "W",
   posX,posY,
   30, 1,
-  0, 400,
-  {{0, 400, 0x00FF00}} 
+  0, 500,
+  {{0, 500, 0xFFFF00},
+   {0, 400, 0x00FF00}} 
 )
 posY = posY + vumeterDeltyY
 
@@ -170,8 +172,9 @@ coalPower = VuMeter:create(
   "Coal power", "W",
   posX,posY,
   30, 1,
-  0, 500,
-  {{0, 500, 0x00FF00}} 
+  0, 650,
+  {{0, 650, 0xFFFF00},
+   {0, 520, 0x00FF00}} 
 )
 posY = posY + vumeterDeltyY
 
@@ -184,8 +187,10 @@ factoryPower = VuMeter:create(
   "Factory power", "W",
   posX,posY,
   30, 1,
-  0, 1200,
-  {{0, 1200, 0x00FF00}} 
+  0, 2500,
+  {{0, 2500, 0xFFFF00},
+   {0,  100, 0x0000FF},
+   {100, 2200, 0x00FF00}} 
 )
 posY = posY + vumeterDeltyY
 
@@ -194,7 +199,9 @@ domesticPower = VuMeter:create(
   posX,posY,
   30, 1,
   0, 1100,
-  {{0, 1100, 0x00FF00}} 
+  {{  0, 1100, 0xFFFF00},
+   {  0,  100, 0x0000FF},
+   {100, 1000, 0x00FF00}} 
 )
 posY = posY + vumeterDeltyY
 
@@ -203,8 +210,10 @@ bunkerPower = VuMeter:create(
   "Bunker power", "W",
   posX,posY,
   30, 1,
-  0, 400,
-  {{0, 400, 0x00FF00}} 
+  0, 500,
+  {{  0, 500, 0xFFFF00},
+   {  0,  50, 0x0000FF},
+   { 50, 400, 0x00FF00}} 
 )
 posY = posY + vumeterDeltyY
 
